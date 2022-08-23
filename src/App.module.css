@@ -1,0 +1,145 @@
+.app {
+    display: flex;
+    flex-direction: column;
+}
+
+.taskContainer {
+    height: 100%;
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.submitTaskContainer {
+    position: absolute;
+    top: calc(0px - (3.375rem / 2));
+    left: 0;
+    right: 0;
+
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+
+    height: 3.375rem;
+    max-width: 46rem;
+
+    display: flex;
+    gap: 8px;
+}
+
+input {
+    background-color: var(--gray-500);
+    flex: 1;
+    border-radius: 8px;
+    padding: 16px;
+    border: 1px solid var(--gray-700);
+}
+
+input::placeholder {
+    color: var(--gray-300);
+}
+
+button {
+    height: 100%;
+    width: 5.625rem;
+    background-color: var(--blue-dark);
+    border-radius: 8px;
+    color: var(--gray-100);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.taskList {
+    margin-top: calc(4rem + (3.375rem / 2));
+    max-width: 46rem;
+    width: 100%;
+
+    gap: 24px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.created {
+    font-size: 0.875;
+    color: var(--blue);
+    font-weight: bold;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+}
+
+.created span {
+    text-align: center;
+    background-color: var(--gray-400);
+    color: var(--gray-200);
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 0.75rem;
+    box-shadow: 0px 4px 2px 0px rgba(0, 0, 0, 0.25);
+}
+
+.finished {
+    font-size: 0.875;
+    color: var(--purple);
+    font-weight: bold;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+}
+
+.finished span {
+    text-align: center;
+    background-color: var(--gray-400);
+    color: var(--gray-200);
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 0.75rem;
+    box-shadow: 0px 4px 2px 0px rgba(0, 0, 0, 0.25);
+}
+
+.main {
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    border-top: 1px solid var(--gray-400);
+    width: 100%;
+    height: auto;
+}
+
+.empty {
+    padding: 4rem 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    gap: 1rem;
+}
+
+.empty span {
+    font-weight: bold;
+    color: var(--gray-300);
+    font-size: 1rem;
+}
+
+.empty p {
+    color: var(--gray-300);
+    font-size: 1rem;
+}
