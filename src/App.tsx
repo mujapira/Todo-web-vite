@@ -1,7 +1,7 @@
 import './App.module.css'
 import Header from './components/Header'
 import styles from "./App.module.css"
-import { PlusCircle } from 'phosphor-react'
+import { PlusCircle, Trash } from 'phosphor-react'
 import { ChangeEvent, FormEvent, InvalidEvent, useState } from 'react'
 import clipboard from './assets/clipboard.svg'
 
@@ -39,7 +39,23 @@ function App() {
     e.target.setCustomValidity('Esse campo não pode estar vazio!')
   }
 
+  function handleDeleteTask(id: string) {
+    const filteredTasks = tasks.filter(task => task.id !== id);
+
+    setTasks(filteredTasks)
+  }
+
+  function handleFinishTask(id: string) {
+    const filteredTasks = tasks.filter(task => task.id !== id);
+    const task = tasks.filter(task => task.id === id);
+    const updatedTask = task[0]
+    updatedTask.completed = true;
+
+    setTasks([...filteredTasks, updatedTask])
+  }
+  
   const isNewTaskEmpty = newTaskText.length === 0;
+  console.log(tasks)
 
   return (
 
@@ -67,9 +83,9 @@ function App() {
             <span className={styles.finished}>Concluídas <span>0</span></span>
           </header>
 
-          <main className={styles.main}>
-            {tasks.length === 0
-              ?
+          {tasks.length === 0
+            ?
+            <main className={styles.mainEmpty}>
               <div className={styles.empty}>
                 <img src={clipboard} />
                 <div>
@@ -77,10 +93,31 @@ function App() {
                   <p>Crie tarefas e organize seus itens a fazer</p>
                 </div>
               </div>
-              :
-              <div>tchau</div>
-            }
-          </main>
+            </main>
+            :
+            tasks.map(task => {
+              return (
+                <main key={task.id} className={styles.main}>
+                  <div className={styles.task}>
+                    {task.completed
+                      ?
+                      <>
+                        <button className={styles.finishTask} onClick={() => handleFinishTask(task.id)}></button>
+                        <span className={styles.taskContent}>{task.content}</span>
+                        <button className={styles.deleteTask} onClick={() => handleDeleteTask(task.id)}><Trash size={16} /></button>
+                      </>
+                      :
+                      <>
+                        <button className={styles.finishTask} onClick={() => handleFinishTask(task.id)}></button>
+                        <span className={styles.taskContent}>{task.content}</span>
+                        <button className={styles.deleteTask} onClick={() => handleDeleteTask(task.id)}><Trash size={16} /></button>
+                      </>
+                    }
+                  </div>
+                </main>
+              )
+            })
+          }
 
         </div>
       </div>
