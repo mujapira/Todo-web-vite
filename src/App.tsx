@@ -2,7 +2,7 @@ import './App.module.css'
 import Header from './components/Header'
 import styles from "./App.module.css"
 import { PlusCircle } from 'phosphor-react'
-import { ChangeEvent, FormEvent, useState } from 'react'
+import { ChangeEvent, FormEvent, InvalidEvent, useState } from 'react'
 import clipboard from './assets/clipboard.svg'
 
 
@@ -13,22 +13,30 @@ interface Task {
 }
 
 function App() {
-  const [tasks, setTasks] = useState([])
+  const [tasks, setTasks] = useState<Task[]>([])
   const [newTaskText, setNewTaskText] = useState('')
 
-  function handleCreateNewTask(e: FormEvent<HTMLFormElement>) {
+  function handleCreateNewTask(e: FormEvent) {
     e.preventDefault()
+
+    const id = String(new Date().getTime())
+    const newTask: Task = {
+      id,
+      content: newTaskText,
+      completed: false
+    }
+
+    setTasks([...tasks, newTask])
+    setNewTaskText('')
   }
 
-  function handleInvalidTask() {
-
+  function handleNewTaskChange(e: ChangeEvent<HTMLTextAreaElement>) {
+    e.target.setCustomValidity('')
+    setNewTaskText(e.target.value)
   }
 
-  function handleNewTaskChange() { }
-
-
-  function handleDeleteTask(e: any) {
-    e.preventDefault()
+  function handleInvalidTask(e: InvalidEvent<HTMLTextAreaElement>) {
+    e.target.setCustomValidity('Esse campo não pode estar vazio!')
   }
 
   const isNewTaskEmpty = newTaskText.length === 0;

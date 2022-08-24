@@ -45,6 +45,7 @@ textarea {
     border: 1px solid var(--gray-700);
     resize: none;
     height: 100%;
+    color: var(--gray-200);
 }
 
 textarea::placeholder {
@@ -62,6 +63,7 @@ button {
     align-items: center;
     justify-content: center;
     gap: 8px;
+    cursor: pointer;
 }
 
 .taskList {

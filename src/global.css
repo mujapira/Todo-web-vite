@@ -15,7 +15,7 @@
 
   --background: #191919;
 }
- 
+
 :focus {
   outline: transparent;
   box-shadow: 0 0 0 2px var(--green-500);
@@ -27,7 +27,7 @@
   box-sizing: border-box;
 }
 
-body { 
+body {
   background: var(--background);
   -webkit-font-smoothing: antialiased;
 }
