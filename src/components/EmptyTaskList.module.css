@@ -1,0 +1,35 @@
+.emptyTaskList {
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    border-top: 1px solid var(--gray-400);
+    width: 100%;
+    height: auto;
+}
+
+.wrapper {
+    padding: 4rem 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    gap: 1rem;
+}
+
+.wrapper div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+strong {
+    font-weight: bold;
+    color: var(--gray-300);
+    font-size: 1rem;
+}
+
+span {
+    color: var(--gray-300);
+    font-size: 1rem;
+}

@@ -128,14 +128,6 @@ button {
     box-shadow: 0px 4px 2px 0px rgba(0, 0, 0, 0.25);
 }
 
-.mainEmpty {
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
-    border-top: 1px solid var(--gray-400);
-    width: 100%;
-    height: auto;
-}
-
 .main {
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
@@ -144,26 +136,7 @@ button {
     height: auto;
 }
 
-.empty {
-    padding: 4rem 0px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
 
-    gap: 1rem;
-}
-
-.empty span {
-    font-weight: bold;
-    color: var(--gray-300);
-    font-size: 1rem;
-}
-
-.empty p {
-    color: var(--gray-300);
-    font-size: 1rem;
-}
 
 .task {
     display: flex;
@@ -175,40 +148,4 @@ button {
     gap: 0.875rem;
     border: 1px solid var(--gray-400);
     border-radius: 8px;
-}
-
-.taskContent {
-    flex: 1;
-    font-size: 0.875rem;
-}
-
-
-.finishTask {
-    border: 2px solid var(--blue);
-    border-radius: 50%;
-    height: 1rem;
-    width: 1rem;
-    background-color: transparent;
-}
-
-.deleteTask {
-    color: var(--blue);
-    background-color: transparent;
-    border: none;
-    width: auto;
-}
-
-.finishTaskDone {
-    border: 2px solid var(--purple);
-    background-color: var(--purple);
-    border-radius: 50%;
-    height: 1rem;
-    width: 1rem;
-}
-
-.taskContentDone {
-    text-decoration-line: line-through;
-    flex: 1;
-    font-size: 0.875rem;
-    color: var(--blue);
 }

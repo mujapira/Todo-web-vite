@@ -1,10 +1,11 @@
+import styles from "./App.module.css"
 import './App.module.css'
 import Header from './components/Header'
-import styles from "./App.module.css"
 import { PlusCircle, Trash } from 'phosphor-react'
 import { ChangeEvent, FormEvent, InvalidEvent, useState } from 'react'
-import clipboard from './assets/clipboard.svg'
 import done from './assets/done.svg'
+import EmptyTaskList from './components/EmptyTaskList'
+import Task from "./components/Task"
 
 
 interface Task {
@@ -87,6 +88,7 @@ function App() {
             <button type="submit" disabled={isNewTaskEmpty}>Criar <PlusCircle size={16} /> </button>
           </form>
         </div>
+
         <div className={styles.taskList}>
           <header className={styles.wrapper}>
             <span className={styles.created}>Tarefas criadas <span>{tasks.length}</span></span>
@@ -100,40 +102,33 @@ function App() {
 
           {tasks.length === 0
             ?
-            <main className={styles.mainEmpty}>
-              <div className={styles.empty}>
-                <img src={clipboard} />
-                <div>
-                  <span>Você ainda não tem tarefas cadastradas</span>
-                  <p>Crie tarefas e organize seus itens a fazer</p>
-                </div>
-              </div>
-            </main>
+            <EmptyTaskList />
             :
             tasks.map(task => {
               return (
-                <main key={task.id} className={styles.main}>
+                <div key={task.id} className={styles.main}>
                   <div className={styles.task}>
                     {task.completed === false
                       ?
-                      <>
-                        <button className={styles.finishTask} onClick={() => handleFinishTask(task.id)}></button>
-                        <span className={styles.taskContent}>{task.content}</span>
-                        <button className={styles.deleteTask} onClick={() => handleDeleteTask(task.id)}><Trash size={16} /></button>
-                      </>
+                      <Task
+                        task={task}
+                        onFinish={() => handleFinishTask(task.id)}
+                        onDelete={() => handleDeleteTask(task.id)}
+                        isFinished={false}
+                      />
                       :
-                      <>
-                        <button className={styles.finishTaskDone} onClick={() => handleFinishTask(task.id)}> <img src={done} alt="" /> </button>
-                        <span className={styles.taskContentDone}>{task.content}</span>
-                        <button className={styles.deleteTask} onClick={() => handleDeleteTask(task.id)}><Trash size={16} /></button>
-                      </>
+                      <Task
+                        task={task}
+                        onFinish={() => handleFinishTask(task.id)}
+                        onDelete={() => handleDeleteTask(task.id)}
+                        isFinished={true}
+                      />
                     }
                   </div>
-                </main>
+                </div>
               )
             })
           }
-
         </div>
       </div>
     </div >
