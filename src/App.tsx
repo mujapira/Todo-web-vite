@@ -1,10 +1,9 @@
 import styles from "./App.module.css"
 import './App.module.css'
 import Header from './components/Header'
-import { PlusCircle, Trash } from 'phosphor-react'
+import { PlusCircle } from 'phosphor-react'
 import { ChangeEvent, FormEvent, InvalidEvent, useState } from 'react'
-import done from './assets/done.svg'
-import EmptyTaskList from './components/EmptyTaskList'
+import EmptyTask from './components/EmptyTask'
 import Task from "./components/Task"
 
 
@@ -102,7 +101,7 @@ function App() {
 
           {tasks.length === 0
             ?
-            <EmptyTaskList />
+            <EmptyTask />
             :
             tasks.map(task => {
               return (

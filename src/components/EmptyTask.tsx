@@ -1,9 +1,9 @@
 import clipboard from '../assets/clipboard.svg'
-import styles from "./EmptyTaskList.module.css"
+import styles from "./EmptyTask.module.css"
 
-export default function EmptyTaskList() {
+export default function EmptyTask() {
     return (
-        <div className={styles.emptyTaskList}>
+        <div className={styles.emptyTask}>
             <div className={styles.wrapper}>
                 <img src={clipboard} />
                 <div>
