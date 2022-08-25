@@ -2,7 +2,7 @@ import styles from "./App.module.css"
 import './App.module.css'
 import Header from './components/Header'
 import { PlusCircle } from 'phosphor-react'
-import { ChangeEvent, FormEvent, InvalidEvent, useState } from 'react'
+import { ChangeEvent, FormEvent, InvalidEvent, useEffect, useState } from 'react'
 import EmptyTask from './components/EmptyTask'
 import Task from "./components/Task"
 
@@ -15,7 +15,19 @@ interface Task {
 }
 
 function App() {
-  const [tasks, setTasks] = useState<Task[]>([])
+
+  function getLocal() {
+    const storageStateAsJSON = localStorage.getItem(
+      '@ignite:tasks-state-1.0.0',
+    )
+    if (storageStateAsJSON) {
+      return JSON.parse(storageStateAsJSON)
+    } else {
+      return []
+    }
+  }
+
+  const [tasks, setTasks] = useState<Task[]>(getLocal())
   const [newTaskText, setNewTaskText] = useState('')
   const [completedTasks, setCompletedTasks] = useState<number>(0)
 
@@ -64,8 +76,12 @@ function App() {
     setTasks([...filteredTasks, updatedTask])
   }
 
+  useEffect(() => {
+    const stateJSON = JSON.stringify(tasks)
+    localStorage.setItem('@ignite:tasks-state-1.0.0', stateJSON)
+  }, [tasks])
+
   const isNewTaskEmpty = newTaskText.length === 0;
-  console.log(tasks)
 
   return (
 
