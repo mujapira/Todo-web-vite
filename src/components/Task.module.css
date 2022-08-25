@@ -6,19 +6,39 @@
     background-color: transparent;
 }
 
-.finishButtonFinished {
-    border: 2px solid var(--purple);
-    background-color: var(--purple);
+.finishButton:hover {
+    border: 2px solid var(--blue-dark);
     border-radius: 50%;
     height: 1rem;
     width: 1rem;
+    background-color: var(--gray-600);
+}
+
+.finishButtonFinished {
+    border: 2px solid var(--purple-dark);
+    background-color: var(--purple-dark);
+    border-radius: 50%;
+    height: 1rem;
+    width: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.finishButtonFinished:hover {
+    border: 2px solid var(--purple);
+    background-color: var(--purple);
 }
 
 .deleteButton {
-    color: var(--blue);
+    color: var(--gray-300);
     background-color: transparent;
     border: none;
     width: auto;
+}
+
+.deleteButton:hover {
+    color: var(--danger);
 }
 
 .taskContent {

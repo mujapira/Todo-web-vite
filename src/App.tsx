@@ -11,7 +11,7 @@ interface Task {
   id: string;
   content: string;
   completed: boolean;
-  publishedAt: Date,
+  publishedAt: number,
 }
 
 function App() {
@@ -39,7 +39,7 @@ function App() {
       id,
       content: newTaskText,
       completed: false,
-      publishedAt: new Date(),
+      publishedAt: (new Date().getTime()),
     }
 
     setTasks([...tasks, newTask])
@@ -96,6 +96,8 @@ function App() {
               name='task'
               value={newTaskText}
               placeholder='Adicione uma nova tarefa'
+              onFocus={(e) => e.target.placeholder = "Descreva a tarefa"}
+              onBlur={(e) => e.target.placeholder = "Adicione uma nova tarefa"}
               onChange={handleNewTaskChange}
               onInvalid={handleInvalidTask}
               required

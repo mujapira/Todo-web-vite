@@ -6,7 +6,7 @@ interface Task {
     id: string;
     content: string;
     completed: boolean;
-    publishedAt: Date,
+    publishedAt: number,
 }
 
 interface Props {

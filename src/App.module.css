@@ -10,6 +10,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 0 10px;
+
+    padding-bottom: 1.5rem;
 }
 
 .submitTaskContainer {
@@ -27,6 +30,8 @@
 
     display: flex;
     gap: 8px;
+
+    padding: 0 10px;
 }
 
 form {
@@ -45,15 +50,24 @@ textarea {
     border: 1px solid var(--gray-700);
     resize: none;
     height: 100%;
-    color: var(--gray-200);
+    color: var(--gray-300);
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
-textarea::placeholder {
-    color: var(--gray-200);
-    font-size: 1rem;
+textarea:focus {
+    border: 1px solid var(--purple);
+    color: var(--gray-100);
 }
 
-button {
+textarea:focus::placeholder {
+    color: var(--gray-100);
+}
+
+
+form button {
     height: 100%;
     width: 5.625rem;
     background-color: var(--blue-dark);
@@ -64,6 +78,10 @@ button {
     justify-content: center;
     gap: 8px;
     cursor: pointer;
+}
+
+form button:hover {
+    background-color: var(--blue);
 }
 
 .taskList {
