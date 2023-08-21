@@ -19,6 +19,7 @@
 - <img src="https://vitejs.dev/logo.svg" height="15px"/>  [Vite](https://vitejs.dev/)
 - <img src="https://user-images.githubusercontent.com/89225210/154760385-8c7a5ab6-c15e-4dee-b285-d0ca77952d29.png" height="15px"/>  [TypeScript](https://www.typescriptlang.org/)
 
+<h4> Não deixe de visitar a <a href="https://github.com/mujapira/ToDo-mobile">versão mobile</a> do projeto!</h4>
 <h2 align="center">🏃‍♂️Instruções</h1>
 
 Clone o projeto e acesse a pasta.
